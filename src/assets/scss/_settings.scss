@@ -1,0 +1,79 @@
+@import "./mixins";
+
+@font-face {
+  src: url("../fonts/Raleway-Medium.ttf");
+  font-family: "Raleway-Medium";
+}
+@font-face {
+  src: url("../fonts/GTWalsheimProRegular.ttf");
+  font-family: "GTWalsheim-Regular";
+}
+
+:root {
+  --r-medium: "Raleway-Medium";
+  --gt-regular: "GTWalsheim-Regular";
+  --text-1: #363636;
+  --text-2: #7f8fa4;
+  --text-3: #9299b9;
+  --bg-1: #4facfe;
+  --bg-2: #6f87ee;
+  --bg-3: #f4f7f9;
+  --bg-4: #ff0033;
+  --bg-5: #4bb543;
+  --bg-6: #fdb946;
+  --highlight-1: #dae0f6;
+  --highlight-2: #00000029;
+  --small: 12px;
+  --normal: 16px;
+  --large: 24px;
+  --larger: 36px;
+
+  @include media(1280px) {
+    --small: 10px;
+    --normal: 14px;
+    --large: 22px;
+    --larger: 34px;
+  }
+}
+
+html {
+  font-size: var(--normal);
+  font-family: var(--gt-regular);
+}
+
+html,
+body,
+#app,
+.main-wrapper,
+.login,
+.contact,
+.main,
+.menu {
+  height: 100%;
+}
+
+.main-wrapper {
+  position: relative;
+}
+
+body {
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+
+  &::after,
+  &::before {
+    box-sizing: border-box;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
