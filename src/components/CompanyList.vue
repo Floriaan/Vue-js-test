@@ -11,10 +11,10 @@
       </div>
       <div class="list__body">
         <Loading v-if="companiesLoading" />
+        <template v-else>
         <div class="list__message" v-if="!filteredCompanies.length">
           No companies found
         </div>
-        <template v-else>
           <CompanyRow
             v-for="(company, index) in filteredCompanies"
             :key="index"
