@@ -11,6 +11,9 @@
       </div>
       <div class="list__body">
         <Loading v-if="companiesLoading" />
+        <div class="list__message" v-if="!filteredCompanies.length">
+          No companies found
+        </div>
         <template v-else>
           <CompanyRow
             v-for="(company, index) in filteredCompanies"
@@ -96,7 +99,6 @@ export default {
 
   &__title {
     font-size: var(--larger);
-    color: var(--text-3);
     padding-left: 20px;
     margin-bottom: 20px;
   }
@@ -123,7 +125,6 @@ export default {
   }
 
   &__th {
-    color: var(--text-3);
     padding: 20px 10px;
   }
 
@@ -156,6 +157,18 @@ export default {
 
   .company--selected {
     background: var(--highlight-1);
+  }
+
+  &__title,
+  &__th,
+  &__message {
+    color: var(--text-3);
+  }
+
+  &__message {
+    margin-top: 50px;
+    text-align: center;
+    font-size: var(--large);
   }
 }
 </style>
