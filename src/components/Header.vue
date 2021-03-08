@@ -12,12 +12,28 @@
     <div class="header__logo-wrapper">
       <div class="header__logo">Company Logo</div>
     </div>
+    <button
+      type="button"
+      class="header__button header__button--logout"
+      @click="logout()"
+    >
+      Logout
+    </button>
   </div>
 </template>
 
 <script>
 export default {
   name: "Header",
+
+  methods: {
+    logout() {
+      document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+      this.$router.push({
+        name: "Login",
+      });
+    },
+  },
 };
 </script>
 
@@ -78,6 +94,17 @@ export default {
     background: url("../assets/icons/magnifier.svg");
     background-size: 170%;
     background-position: center;
+  }
+
+  &__button {
+    margin: 0 20px 0 auto;
+    border: none;
+    color: #fff;
+
+    &--logout {
+      background: var(--bg-7);
+      padding: 8px 12px;
+    }
   }
 }
 </style>
